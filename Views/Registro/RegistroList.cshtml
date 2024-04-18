@@ -1,0 +1,26 @@
+﻿@model List<Registro>
+
+<h1>Lista de Registro</h1>
+<table  class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Código BP
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model)
+        {
+            <tr>
+                <td> @obj.Id</td>
+                <td> @obj.CodigoBP</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+

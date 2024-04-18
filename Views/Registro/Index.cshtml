@@ -1,0 +1,105 @@
+﻿@model Registro
+
+<form method="post">
+<div class="container">
+    <h1>Introdução de Entrada de Peça</h1>
+
+    <div class="form-group">
+            <label for="Quantidade">Quantidade:</label>
+            <select asp-for="Quantidade" class="form-control">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="codigoBP">Código BP:</label>
+         <input asp-for="CodigoBP" class="form-control">
+            <span asp-validation-for="CodigoBP" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="descricaoNaoConformidade">Descrição da Não Conformidade:</label>
+            <textarea asp-for="DescricaoNaoConformidade" class="form-control" rows="3"></textarea>
+            <span asp-validation-for="DescricaoNaoConformidade" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Seleção entre Retrabalho ou Fabricar Peça Nova:</label>
+        <div class="form-check">
+                <input type="radio" name="OpcaoRetrabalhoFabricar" id="rbRetrabalho" value="retrabalho" class="form-check-input" checked>
+            <label for="rbRetrabalho" class="form-check-label">Retrabalho</label>
+        </div>
+        <div class="form-check">
+                <input type="radio" name="OpcaoRetrabalhoFabricar" id="rbFabricarNovaPeca" value="fabricar_nova_peca" class="form-check-input">
+            <label for="rbFabricarNovaPeca" class="form-check-label">Fabricar Peça Nova</label>
+        </div>
+    </div>
+
+    <div id="retrabalho-container" class="form-group">
+        <label for="origemRetrabalho">Origem do Retrabalho:</label>
+            <select asp-for="OrigemRetrabalho" class="form-control">
+            <option value="erro_fornecedor">Erro Fornecedor</option>
+            <option value="melhoria_engenharia">Melhoria Engenharia</option>
+            <option value="melhoria_montagem">Melhoria Montagem</option>
+        </select>
+    </div>
+
+    <div id="fabricacao-container" class="form-group">
+        <div class="form-group">
+            <label for="fornecedor">Fornecedor:</label>
+                <input asp-for="Fornecedor" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="projeto">Projeto:</label>
+                <input asp-for="Projeto" class="form-control">
+        </div>
+
+            <div class="form-group">
+                <label>Em Caso de Fabricação de Peça Nova:</label>
+                <div class="form-check">
+                    <input type="radio" name="OpcaoFabricacao" id="rbNA" value="N/A" class="form-check-input" checked>
+                    <label for="rbNA" class="form-check-label">N/A</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="OpcaoFabricacao" id="rbMatPrimaSeparada" value="Matéria Prima Separada" class="form-check-input">
+                    <label for="rbMatPrimaSeparada" class="form-check-label">Matéria Prima Separada</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="OpcaoFabricacao" id="rbMatPrimaComprada" value="Matéria Prima Comprada" class="form-check-input">
+                    <label for="rbMatPrimaComprada" class="form-check-label">Matéria Prima Comprada</label>
+                </div>
+                
+            </div>
+
+        <div class="form-group">
+            <label for="data">Data:</label>
+                <input asp-for="DataFabricacao" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="nomeSolicitante">Nome do Solicitante:</label>
+            <input asp-for="NomeSolicitante" class="form-control">
+            <span asp-validation-for="NomeSolicitante" class="text-danger"></span>
+    </div>
+
+    <button type="submit"  class="btn btn-primary">Salvar</button>
+</div>
+</form>
+
+<style>
+    .btn {
+        margin-top: 20px; /* Adiciona espaço acima do botão */
+    }
+
+</style>
